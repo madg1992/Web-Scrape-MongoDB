@@ -1,9 +1,9 @@
 // Require Dependencies
 var express = require("express");
 var mongoose = require("mongoose");
-var axios = require("axios");
-var cheerio = require('cheerio');
 var exphs = require("express-handlebars");
+var logger = require('morgan');
+
 
 // Set the PORT
 var PORT = process.env.PORT || 3000;
@@ -12,6 +12,8 @@ var PORT = process.env.PORT || 3000;
 var app = express();
 
 // Define Middleware
+// Use morgan logger for logging requests
+app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
